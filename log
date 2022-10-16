@@ -132,3 +132,54 @@ Sun 16 Oct 2022 11:25:05 PM UTC:
  tests:  7|1
 total_score: 45/70
 8a2fe10
+Sun 16 Oct 2022 11:41:50 PM UTC: 
+ heap.c | 22 ++++++++++++++++++++++
+ 1 file changed, 22 insertions(+)
+In file included from test.c:4:
+heap.c: In function ‘heap_pop’:
+heap.c:57:19: error: incompatible types when initializing type ‘heapElem *’ {aka ‘struct nodo *’} using type ‘heapElem’ {aka ‘struct nodo’}
+   57 |   heapElem* aux = pq->heapArray[0];
+      |                   ^~
+heap.c:60:9: error: incompatible types when assigning to type ‘heapElem *’ {aka ‘struct nodo *’} from type ‘heapElem’ {aka ‘struct nodo’}
+   60 |   aux = pq->heapArray[pq->size];
+      |         ^~
+heap.c:62:22: error: incompatible types when assigning to type ‘heapElem’ {aka ‘struct nodo’} from type ‘heapElem *’ {aka ‘struct nodo *’}
+   62 |   pq->heapArray[0] = aux;
+      |                      ^~~
+heap.c:68:8: error: ‘mayor’ is a pointer; did you mean to use ‘->’?
+   68 |   mayor.data = pq->heapArray[0].data;
+      |        ^
+      |        ->
+heap.c:69:8: error: ‘mayor’ is a pointer; did you mean to use ‘->’?
+   69 |   mayor.priority = pq->heapArray[0].priority;
+      |        ^
+      |        ->
+heap.c:73:14: error: ‘mayor’ is a pointer; did you mean to use ‘->’?
+   73 |     if (mayor.priority <= pq->heapArray[i].priority){
+      |              ^
+      |              ->
+heap.c:75:15: error: incompatible types when assigning to type ‘heapElem *’ {aka ‘struct nodo *’} from type ‘heapElem’ {aka ‘struct nodo’}
+   75 |       mayor = pq->heapArray[i];
+      |               ^~
+heap.c:76:26: error: incompatible types when assigning to type ‘heapElem’ {aka ‘struct nodo’} from type ‘heapElem *’ {aka ‘struct nodo *’}
+   76 |       pq->heapArray[i] = aux;
+      |                          ^~~
+test.c:276:5: error: ‘main’ is normally a non-static function [-Werror=main]
+  276 | int main( int argc, char *argv[] ) {
+      |     ^~~~
+test.c:292:1: error: expected declaration or statement at end of input
+  292 | }
+      | ^
+test.c:12:6: error: unused variable ‘msg’ [-Werror=unused-variable]
+   12 | char msg[300];
+      |      ^~~
+At top level:
+test.c:276:5: error: ‘main’ defined but not used [-Werror=unused-function]
+  276 | int main( int argc, char *argv[] ) {
+      |     ^~~~
+test.c:6:8: error: ‘_strdup’ defined but not used [-Werror=unused-function]
+    6 | char * _strdup(const char * str) {
+      |        ^~~~~~~
+cc1: all warnings being treated as errors
+Compilation failed
+645f016
