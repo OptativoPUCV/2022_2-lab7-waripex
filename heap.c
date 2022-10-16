@@ -54,29 +54,33 @@ void heap_push(Heap* pq, void* data, int priority){
 
 
 void heap_pop(Heap* pq){
-  heapElem* aux = pq->heapArray[0];
-  heapElem* mayor;
-  
-  aux = pq->heapArray[pq->size];
-  pq->heapArray[pq->size] = pq->heapArray[0];
-  pq->heapArray[0] = aux;
+  if(pq->size == 0) return;
 
-  pq->heapArray[pq->size].data = NULL;
-  pq->heapArray[pq->size].priority = 0;
-  pq->size--;
+   pq->heapArray[0] = pq->heapArray[pq->size-1];
+   pq->heapArray[pq->size].data = NULL;
+   pq->heapArray[pq->size].priority = 0;
+   pq->size--;
+   
+   int aux = 0;
 
-  mayor.data = pq->heapArray[0].data;
-  mayor.priority = pq->heapArray[0].priority;
-  int i;
-  while(i != pq->capac){
+   while((2*aux+2) <= pq->capac && (
+         pq->heapArray[2*aux+1].priority > pq->heapArray[aux].priority ||
+         pq->heapArray[2*aux+2].priority > pq->heapArray[aux].priority))
+   {
 
-    if (mayor.priority <= pq->heapArray[i].priority){
-      aux = mayor;
-      mayor = pq->heapArray[i];
-      pq->heapArray[i] = aux;
-    }
+  if(pq->heapArray[2*aux+1].priority > pq->heapArray[2*aux+2].priority)
+      {
+    swap(&pq->heapArray[aux], &pq->heapArray[2*aux+1]);
+         aux = 2*aux+1;
+      }
+   else
+      {
+         swap(&pq->heapArray[aux], &pq->heapArray[2*aux+2]);
+         aux = 2*aux+2;
+      }
 
-    i++;
+   }
+
   }
 
 Heap* createHeap(){
