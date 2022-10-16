@@ -38,6 +38,5 @@ Heap* createHeap(){
    aux->capac = 3;
    aux->size = 0;
    return aux;
-
-   return NULL;
+  
 }
