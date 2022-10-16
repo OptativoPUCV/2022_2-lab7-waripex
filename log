@@ -12,3 +12,9 @@ Sun 16 Oct 2022 10:41:25 PM UTC:
  1 file changed, 1 deletion(-)
  tests:  0|0
 59efeab
+Sun 16 Oct 2022 10:41:34 PM UTC: 
+ heap.c | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
+ tests:  1|3
+total_score: 10/70
+cb57243
