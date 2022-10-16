@@ -50,3 +50,41 @@ heap.c:22:41: error: expected ‘;’ before ‘}’ token
       | ~                                        
 Compilation failed
 e2708fb
+Sun 16 Oct 2022 11:23:12 PM UTC: 
+ heap.c | 35 +++++++++++++++++++++--------------
+ 1 file changed, 21 insertions(+), 14 deletions(-)
+In file included from test.c:4:
+heap.c: In function ‘heap_top’:
+heap.c:22:40: error: ‘s’ undeclared (first use in this function)
+   22 |    return (void*)pq->heapArray[0].data;s
+      |                                        ^
+heap.c:22:40: note: each undeclared identifier is reported only once for each function it appears in
+heap.c:22:41: error: expected ‘;’ before ‘}’ token
+   22 |    return (void*)pq->heapArray[0].data;s
+      |                                         ^
+      |                                         ;
+   23 | }
+      | ~                                        
+heap.c: In function ‘heap_push’:
+heap.c:49:14: error: ‘posInf’ undeclared (first use in this function)
+   49 |       sup = (posInf - 1)/2;
+      |              ^~~~~~
+test.c:276:5: error: ‘main’ is normally a non-static function [-Werror=main]
+  276 | int main( int argc, char *argv[] ) {
+      |     ^~~~
+test.c:292:1: error: expected declaration or statement at end of input
+  292 | }
+      | ^
+test.c:12:6: error: unused variable ‘msg’ [-Werror=unused-variable]
+   12 | char msg[300];
+      |      ^~~
+At top level:
+test.c:276:5: error: ‘main’ defined but not used [-Werror=unused-function]
+  276 | int main( int argc, char *argv[] ) {
+      |     ^~~~
+test.c:6:8: error: ‘_strdup’ defined but not used [-Werror=unused-function]
+    6 | char * _strdup(const char * str) {
+      |        ^~~~~~~
+cc1: all warnings being treated as errors
+Compilation failed
+35b70d1
