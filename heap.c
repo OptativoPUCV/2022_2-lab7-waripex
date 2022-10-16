@@ -46,7 +46,7 @@ void heap_push(Heap* pq, void* data, int priority){
       }
 
       inf = sup;
-      sup = (posInf - 1)/2;
+      sup = (inf - 1)/2;
    }
 
    pq->size++;

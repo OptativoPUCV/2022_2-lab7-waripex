@@ -109,3 +109,20 @@ heap.c:49:14: error: ‘posInf’ undeclared (first use in this function)
       |              ^~~~~~
 Compilation failed
 f319581
+Sun 16 Oct 2022 11:23:52 PM UTC: 
+ heap.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+In file included from test.c:4:
+heap.c: In function ‘heap_top’:
+heap.c:22:40: error: ‘s’ undeclared (first use in this function)
+   22 |    return (void*)pq->heapArray[0].data;s
+      |                                        ^
+heap.c:22:40: note: each undeclared identifier is reported only once for each function it appears in
+heap.c:22:41: error: expected ‘;’ before ‘}’ token
+   22 |    return (void*)pq->heapArray[0].data;s
+      |                                         ^
+      |                                         ;
+   23 | }
+      | ~                                        
+Compilation failed
+e99a9a7
