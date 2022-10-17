@@ -54,6 +54,12 @@ void heap_push(Heap* pq, void* data, int priority){
 
 
 void heap_pop(Heap* pq){
+  size--;
+  array[0] = array[pq->size];
+
+  prioridad = array[0].priority;
+  now = 1;
+  
   }
 
 Heap* createHeap(){

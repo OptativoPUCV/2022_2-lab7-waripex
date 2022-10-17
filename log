@@ -285,3 +285,24 @@ Mon 17 Oct 2022 12:53:46 AM UTC:
  tests:  7|1
 total_score: 45/70
 b0a4b6f
+Mon 17 Oct 2022 12:57:51 AM UTC: 
+ heap.c | 6 ++++++
+ 1 file changed, 6 insertions(+)
+In file included from test.c:4:
+heap.c: In function ‘heap_pop’:
+heap.c:57:3: error: ‘size’ undeclared (first use in this function)
+   57 |   size--;
+      |   ^~~~
+heap.c:57:3: note: each undeclared identifier is reported only once for each function it appears in
+heap.c:58:3: error: ‘array’ undeclared (first use in this function)
+   58 |   array[0] = array[pq->size];
+      |   ^~~~~
+heap.c:60:3: error: ‘prioridad’ undeclared (first use in this function)
+   60 |   prioridad = array[0].priority;
+      |   ^~~~~~~~~
+heap.c:61:3: error: ‘now’ undeclared (first use in this function); did you mean ‘pow’?
+   61 |   now = 1;
+      |   ^~~
+      |   pow
+Compilation failed
+ad590a9
