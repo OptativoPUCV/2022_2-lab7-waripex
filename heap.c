@@ -70,7 +70,8 @@ void heap_pop(Heap* pq){
 
   if(pq->heapArray[2*aux+1].priority > pq->heapArray[2*aux+2].priority)
       {
-    swap(&pq->heapArray[aux], &pq->heapArray[2*aux+1]);
+    &pq->heapArray[aux] = &pq->heapArray[2*aux+1];
+        
          aux = 2*aux+1;
       }
    else
