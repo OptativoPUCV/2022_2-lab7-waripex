@@ -214,3 +214,37 @@ Mon 17 Oct 2022 12:11:52 AM UTC:
  tests:  7|1
 total_score: 45/70
 f6e9fef
+Mon 17 Oct 2022 12:52:24 AM UTC: 
+ heap.c | 24 ++++++++++++++++++++++++
+ 1 file changed, 24 insertions(+)
+In file included from test.c:4:
+heap.c: In function ‘heap_pop’:
+heap.c:59:9: error: incompatible types when assigning to type ‘heapElem *’ {aka ‘struct nodo *’} from type ‘heapElem’ {aka ‘struct nodo’}
+   59 |   aux = pq->heapArray[0];
+      |         ^~
+heap.c:62:9: error: incompatible types when assigning to type ‘heapElem *’ {aka ‘struct nodo *’} from type ‘heapElem’ {aka ‘struct nodo’}
+   62 |   aux = pq->heapArray[pq->size];
+      |         ^~
+heap.c:64:22: error: incompatible types when assigning to type ‘heapElem’ {aka ‘struct nodo’} from type ‘heapElem *’ {aka ‘struct nodo *’}
+   64 |   pq->heapArray[0] = aux;
+      |                      ^~~
+heap.c:70:8: error: ‘mayor’ is a pointer; did you mean to use ‘->’?
+   70 |   mayor.data = pq->heapArray[0].data;
+      |        ^
+      |        ->
+heap.c:71:8: error: ‘mayor’ is a pointer; did you mean to use ‘->’?
+   71 |   mayor.priority = pq->heapArray[0].priority;
+      |        ^
+      |        ->
+heap.c:75:14: error: ‘mayor’ is a pointer; did you mean to use ‘->’?
+   75 |     if (mayor.priority <= pq->heapArray[i].priority){
+      |              ^
+      |              ->
+heap.c:77:15: error: incompatible types when assigning to type ‘heapElem *’ {aka ‘struct nodo *’} from type ‘heapElem’ {aka ‘struct nodo’}
+   77 |       mayor = pq->heapArray[i];
+      |               ^~
+heap.c:78:26: error: incompatible types when assigning to type ‘heapElem’ {aka ‘struct nodo’} from type ‘heapElem *’ {aka ‘struct nodo *’}
+   78 |       pq->heapArray[i] = aux;
+      |                          ^~~
+Compilation failed
+a263f87
